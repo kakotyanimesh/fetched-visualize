@@ -5,25 +5,34 @@ function App() {
   const [isFetching, setIsFetching] = useState(false)
   const [data, setData] = useState(null)
   const [err, seterr] = useState(null)
+  const [dataclear, setDataClear] = useState(false)
+  const [url, seturl] = useState("")
   
   const handleClick = async () => {
     setIsFetching(true)
     seterr(null) // for clearing my previous errors
+    setDataClear(false)
     try {
-      const response = await fetch("https://dummyjson.com/users")
+      const response = await fetch(`${url}`)
 
-      const data = await response.json()
+      const datas = await response.json()
 
       if (!response.ok) {
         throw new Error('Network response was not ok');
       }
-      setData(data)
+      setData(datas)
     } catch (error) {
       console.log(`error is ${error}`);
       seterr(err.message)
     } finally{
       setIsFetching(false); 
     }
+  }
+
+  const handleClearData = () => {
+    setData(null)
+    setDataClear(true)
+    // isFetching(false)
   }
 
   return (
@@ -37,6 +46,25 @@ function App() {
       <h1 className="flex justify-center text-blue-900 text-lg font-blod font-sans md:font-mono">
         let's fetched some user's data from a dummy server
         </h1>
+        
+        <div>
+      
+      <div className="relative mt-2 rounded-md shadow-sm">
+        <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+        </div>
+        <input
+          id="url"
+          name="url"
+          type="text"
+          value={url}
+          onChange={(e) => seturl(e.target.value)}
+          placeholder="enter user id"
+          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+        />
+        
+      </div>
+    </div>
+        
         <button
           className="rounded-lg bg-gray-900 py-3 px-6 text-center w-auto mt-4 align-middle font-sans text-xs font-bold uppercase text-white"
           type="button"
@@ -45,25 +73,33 @@ function App() {
         >
           fetch data
         </button>
+        <button
+          className="rounded-lg bg-gray-900 py-3 px-6 text-center w-auto mt-4 align-middle font-sans text-xs font-bold uppercase text-white"
+          type="button"
+          onClick={handleClearData}
 
-        {/* <div className="flex justify-between w-full mt-10">
-            <div className="border-2 border-white-200 w-34 h-56"></div>
-            <div className="border-2 border-white-200 w-1/3 h-56 mx-2"></div>
-            <div className="border-2 border-white-200 w-1/3 h-56"></div>
+        >
+          clear data 
+        </button>
 
-        </div> */}
-
-<div className="flex flex-col md:flex-row justify-between w-full p-4 mt-8 space-y-4 md:space-y-0 md:space-x-4">
-          <div className="border-2 border-blue-900 w-full md:w-1/4 h-48">
-          {<p>fetched code</p>}
-          </div>
-          <div className="border-2 border-blue-900 w-full md:w-1/4 h-48 text-center">
-            
-          </div>
-          <div className="border-2 border-blue-900 w-full md:w-1/4 h-48">
-          {data ? <pre>{JSON.stringify(data, null, 2)}</pre> : <p>No data available</p>}
+        <div className='text-center'>
+        <div>
+        { dataclear ? (
+          <p>data cleared successfully</p>
+        )
+        : isFetching ? (
+          <p>data is fetching</p>
+        )
+        
+          : data ? (
+            <pre>{JSON.stringify(data, null, 2)}</pre>
+          ) : (
+            <p>Not yet fetched</p>
+          )}
           </div>
         </div>
+        
+        
 
     </div>
     </div>
