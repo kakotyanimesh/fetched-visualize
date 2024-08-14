@@ -1,4 +1,8 @@
 import React, { useState } from 'react';
+import { FaGithub } from "react-icons/fa";
+import { FaTwitterSquare } from "react-icons/fa";
+import { FiMessageCircle } from "react-icons/fi";
+
 import './App.css';
 
 function App() {
@@ -37,14 +41,28 @@ function App() {
 
   return (
     <div>
+
+    <nav className='flex justify-between m-4'>
+      <div>
+          <a href='https://bento.me/animeshkakoty' target='_blank'><h1 className='bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-[1000] text-lg'>Animesh kakoty</h1>
+          </a>
+      </div>
+      <div className='flex space-x-4'>
+        
+        <a href='https://github.com/kakotyanimesh' target='_blank' className='text-[1.5rem]'><FaGithub /></a>
+        <a href='https://x.com/_animeshkakoty' target='_blank' className='text-[1.5rem]'><FaTwitterSquare /></a>
+        <a href="https://bento.me/animeshkakoty" target='_blank' className='text-[1.5rem]'><FiMessageCircle /></a>
+        
+      </div>
+      </nav>  
     <div className="flex justify-center bg-white ">
       <h1 className="text-3xl font-bold text-blue-900 items-center mt-10 p-4 ">
         Fetched visualization
       </h1>
     </div>
     <div className=" p-4 w-f rounded flex flex-col items-center">
-      <h1 className="flex justify-center text-blue-900 text-lg font-blod font-sans md:font-mono">
-        let's fetched some user's data from a dummy server
+      <h1 className="flex justify-center text-blue-900 text-lg font-blod font-sans text-center uppercase md:font-mono">
+      I know this isn’t a great project, but until yesterday, I had zero knowledge about React and Tailwind CSS.
         </h1>
         
         <div>
@@ -59,7 +77,7 @@ function App() {
           value={url}
           onChange={(e) => seturl(e.target.value)}
           placeholder="enter user id"
-          className="block w-full rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+          className="block w-96 rounded-md border-0 py-1.5 pl-7 pr-20 text-gray-900 ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6 mt-6"
         />
         
       </div>
@@ -82,7 +100,7 @@ function App() {
           clear data 
         </button>
 
-        <div className='text-center'>
+        <div className='text-center py-10 text-lg font-bold text-pink-600'>
         <div>
         { dataclear ? (
           <p>data cleared successfully</p>
