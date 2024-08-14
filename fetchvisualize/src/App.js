@@ -23,7 +23,7 @@ function App() {
       setData(datas)
     } catch (error) {
       console.log(`error is ${error}`);
-      seterr(err.message)
+      seterr(error.message)
     } finally{
       setIsFetching(false); 
     }
@@ -86,6 +86,8 @@ function App() {
         <div>
         { dataclear ? (
           <p>data cleared successfully</p>
+        ) :err ? (
+          <p>Error : {err}</p>
         )
         : isFetching ? (
           <p>data is fetching</p>
@@ -93,8 +95,8 @@ function App() {
         
           : data ? (
             <pre>{JSON.stringify(data, null, 2)}</pre>
-          ) : (
-            <p>Not yet fetched</p>
+          ): (
+            <p>click on fetch to display data</p>
           )}
           </div>
         </div>
