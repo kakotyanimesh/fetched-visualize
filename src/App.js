@@ -44,7 +44,7 @@ function App() {
 
     <nav className='flex justify-between m-4'>
       <div>
-          <a href='https://bento.me/animeshkakoty' target='_blank'><h1 className='bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-[1000] text-lg'>DataSnap</h1>
+          <a href='https://bento.me/animeshkakoty' target='_blank'><h1 className='bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text font-[1000] text-lg'>DataSnap by animesh </h1>
           </a>
       </div>
       <div className='flex space-x-4'>
