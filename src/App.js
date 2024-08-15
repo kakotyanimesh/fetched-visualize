@@ -57,7 +57,7 @@ function App() {
       </nav>  
     <div className="flex justify-center bg-white ">
       <h1 className="text-3xl font-bold text-blue-900 items-center mt-10 p-4 ">
-        Fetched visualization
+        Fetch Your Data 
       </h1>
     </div>
     <div className=" p-4 w-f rounded flex flex-col items-center">
