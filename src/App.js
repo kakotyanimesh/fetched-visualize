@@ -57,12 +57,12 @@ function App() {
       </nav>  
     <div className="flex justify-center bg-white ">
       <h1 className="text-3xl font-bold text-blue-900 items-center mt-10 p-4 ">
-        Fetch Your Data 
+        Fetch Your Data  
       </h1>
     </div>
     <div className=" p-4 w-f rounded flex flex-col items-center">
       <h1 className="flex justify-center text-blue-900 text-lg font-blod font-sans text-center uppercase md:font-mono">
-      I know this isn’t a great project, but until yesterday, I had zero knowledge about React and Tailwind CSS.
+      I know this isn’t a great project, but until yesterday, I had zero knowledge about React and Tailwind CSS and today i am still noob
         </h1>
         
         <div>
